@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CakeVerse  – Celebrate with Cakes</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== EXISTING STYLES (UNCHANGED) ===== */
+    :root {
+      --bg-main: #fff5f9;
+      --bg-accent: #f7d6e6;
+      --primary: #b8326a;
+      --secondary: #ff8fb8;
+      --text-dark: #3a0f1e;
+      --card-bg: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, var(--bg-main), var(--bg-accent));
+      background-size: 200% 200%;
+      animation: bgMove 16s ease infinite;
+      color: var(--text-dark);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    @keyframes bgMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.8) 2px, transparent 2px);
+      background-size: 60px 60px;
+      opacity: 0.25;
+      animation: sparkle 14s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes sparkle {
+      from { background-position: 0 0; }
+      to { background-position: 120px 120px; }
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(10px);
+      padding: 1.4rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    header nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4.5rem 2rem 3rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      opacity: 0.85;
+      margin-top: 0.5rem;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 2.5rem auto 0;
+    }
+
+    .dash-card {
+      background: var(--card-bg);
+      padding: 1.6rem;
+      border-radius: 1.4rem;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .dash-card h3 { font-size: 1.6rem; color: var(--primary); }
+    .dash-card p { font-size: 0.85rem; opacity: 0.7; }
+
+    .offers {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2.2rem;
+    }
+
+    .offer-pill {
+      background: rgba(184,50,106,0.12);
+      color: var(--primary);
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+    }
+
+    .section { padding: 5rem 2rem; }
+
+    .section h2 {
+      text-align: center;
+      font-size: 2.3rem;
+      margin-bottom: 3rem;
+      color: var(--primary);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 1.8rem;
+      padding: 2.2rem;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+      transition: transform 0.35s ease;
+    }
+
+    .card:hover { transform: translateY(-10px); }
+
+    .emoji {
+      font-size: 3rem;
+      margin-bottom: 0.8rem;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .price {
+      font-size: 1.6rem;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .badge {
+      background: rgba(184,50,106,0.12);
+      color: var(--primary);
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      margin-top: 0.6rem;
+      display: inline-block;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      font-size: 0.85rem;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div>🎂 CAKE VERSE</div>
+  <nav>
+    <a href="#pricing">Pricing</a>
+    <a href="#varieties">Varieties</a>
+    <a href="#flavours">Flavours</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>CAKE VERSE</h1>
+  <p class="tagline">Celebrate every moment with sweetness & smart design</p>
+
+  <div class="dashboard">
+    <div class="dash-card"><h3>1,200+</h3><p>Orders Delivered</p></div>
+    <div class="dash-card"><h3>4.8★</h3><p>Customer Rating</p></div>
+    <div class="dash-card"><h3>25%</h3><p>Festival Discounts</p></div>
+    <div class="dash-card"><h3>900+</h3><p>Happy Customers</p></div>
+  </div>
+
+  <div class="offers">
+    <div class="offer-pill">❤️ Valentine Week – Flat 25% OFF</div>
+    <div class="offer-pill">🎓 Students Get 10% OFF</div>
+    <div class="offer-pill">🎉 Festival Combos Available</div>
+  </div>
+</section>
+
+<!-- 🍰 CAKE VARIETIES -->
+<section id="varieties" class="section">
+  <h2>Cake Varieties</h2>
+  <div class="grid">
+    <div class="card"><div class="emoji">🎂</div><h3>Birthday Cakes</h3><p>Perfect for every age & celebration.</p></div>
+    <div class="card"><div class="emoji">💍</div><h3>Wedding Cakes</h3><p>Elegant multi-layered designs.</p></div>
+    <div class="card"><div class="emoji">🧁</div><h3>Cupcakes</h3><p>Mini delights with big taste.</p></div>
+    <div class="card"><div class="emoji">🎉</div><h3>Custom Cakes</h3><p>Designed just for your moments.</p></div>
+  </div>
+</section>
+
+<!-- 🍫 CAKE FLAVOURS -->
+<section id="flavours" class="section">
+  <h2>Cake Flavours</h2>
+  <div class="grid">
+    <div class="card"><div class="emoji">🍫</div><h3>Chocolate</h3><p>Rich & indulgent cocoa layers.</p></div>
+    <div class="card"><div class="emoji">🍓</div><h3>Strawberry</h3><p>Fresh & fruity sweetness.</p></div>
+    <div class="card"><div class="emoji">🍍</div><h3>Pineapple</h3><p>Classic tropical flavour.</p></div>
+    <div class="card"><div class="emoji">🥭</div><h3>Mango</h3><p>Seasonal favorite delight.</p></div>
+  </div>
+</section>
+
+<!-- 💰 PRICING -->
+<section id="pricing" class="section">
+  <h2>Pricing</h2>
+  <div class="grid">
+    <div class="card"><h3>Single Slice</h3><div class="price">₹150</div></div>
+    <div class="card"><h3>Whole Cake</h3><div class="price">₹499</div><div class="badge">Most Popular</div></div>
+    <div class="card"><h3>Celebration Box</h3><div class="price">₹999</div><div class="badge">Best Value</div></div>
+  </div>
+</section>
+
+<!-- 📞 CONTACT -->
+<section id="contact" class="section">
+  <h2>Contact Me</h2>
+  <div class="contact-grid">
+    <div class="card"><h3>📞 Phone</h3><p>9008995746</p><div class="badge">Call / WhatsApp</div></div>
+    <div class="card"><h3>📧 Email</h3><p>Anushask@gmail.com</p><div class="badge">24/7 Support</div></div>
+  </div>
+</section>
+
+<footer>
+  © 2026 CakeVerse AI — Designed for celebrations 🎂✨
+</footer>
+
+</body>
+</html>
